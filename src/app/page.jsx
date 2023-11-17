@@ -1,15 +1,19 @@
 import Link from "next/link";
 import styles from "./homepage.module.css";
-
+import Feature from "@/components/feature/Feature";
+import CategoryList from "@/components/categoryList/CategoryList";
+import CardList from "@/components/cardlist/CardList";
+import Menu from "@/components/menu/Menu";
 export default function Home() {
   return (
-    <div>
-      <Link href="/">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum eos
-        distinctio inventore quia amet cum deleniti maiores velit et, alias
-        error, incidunt fuga illo voluptas neque sit exercitationem, magni
-        fugit.
-      </Link>
+    <div className={styles.container}>
+      <Feature />
+      <CategoryList />
+
+      <div className={styles.content}>
+        <CardList />
+        <Menu />
+      </div>
     </div>
   );
 }

@@ -1,7 +1,10 @@
+import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 import "./globals.css";
 import { Inter } from "next/font/google";
-
+import { ThemeContextProvider } from "@/components/context/ThemeContext";
 const inter = Inter({ subsets: ["latin"] });
+import ThemeProvider from "../components/providers/ThemeProvider";
 
 export const metadata = {
   title: "Blog App",
@@ -12,9 +15,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="wrapper">
-          <div className="container">{children}</div>
-        </div>
+        <ThemeContextProvider>
+          <ThemeProvider>
+            <div className="container">
+              <div className="wrapper">
+                <Navbar />
+                {children}
+                <Footer />
+              </div>
+            </div>
+          </ThemeProvider>
+        </ThemeContextProvider>
       </body>
     </html>
   );
